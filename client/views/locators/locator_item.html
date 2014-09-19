@@ -1,8 +1,21 @@
 <template name="locatorItem">
-  <a href="{{ pathFor 'locatorPage' }}" class="list-group-item clearfix" style="font-size: 25px;">
+  <a href="{{ pathFor 'locatorPage' }}" 
+      class="list-group-item clearfix" 
+      style="font-size: 25px;">
     <span>
       {{shortNameLowerCase}}
     </span>
-    <span class="badge pull-right" style="margin-top: 0.8em;">{{#if monitorsCount}}{{monitorsCount}}{{/if}}</span>
+    <span class="badge pull-right" style="margin-top: 0.8em;">
+        {{#if monitorsCount}}{{monitorsCount}}{{/if}}
+    </span>
   </a>
+  <div id="map-{{cep}}">
+      <div class="map-zone" 
+          id="map-canvas-{{cep}}" 
+          style="width: 100%; height: 250px;"
+          data-zip="{{cep}}"
+          data-name="{{shortNameLowerCase}}">
+      </div>
+  </div>
 </template>
+
